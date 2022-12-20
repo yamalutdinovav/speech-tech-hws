@@ -51,3 +51,11 @@ sum(p.numel() for p in model.encoder.parameters())
 * посчитать Word Error Rate на датасетах `./data/test_opus/crowd/manifest.jsonl` и `./data/test_opus/farfield/manifest.jsonl` с помощью предобученного чекпоинта: `./data/q5x5_ru_stride_4_crowd_epoch_4_step_9794.ckpt`
 * если у вас есть gpu, с помощью датасета `./data/train_opus/manifest.jsonl` и предобученного чекпоинта улучшить качество модели на `test_opus/farfield`-данных
 * если у вас нет gpu, взять случайный семпл в 10 минут (~ 100 примеров) из `./data/train_opus/manifest.jsonl` и показать, что со случайных весов модель способна на нем переобучиться
+
+## Итоги:
+Модуль реализован в `src/encoder.py`
+
+WER на farfield порядка 59,5%
+
+Пример переобучения модели на 10 записях из train manifest:
+![image](overfit.png)
